@@ -14,8 +14,6 @@ runs:
     using: "composite"
     steps:
       - name: Run Task
-        env:
-          CUMULUSCI_SERVICE_github: '{"username": "${{ github.actor }}", "token": "${{ github.token }}", "email": "cci@github.actions" }'
         run: |
           cci task run ${{ inputs.task-name }} --org ${{ inputs.org-name }} ${{ inputs.options }} | tee cumulusci.log
         shell: bash
